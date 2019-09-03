@@ -28,16 +28,35 @@ namespace CollectIt
             // Unit 2.3 - QUEUE<T>
 
             Queue<Employee> line = new Queue<Employee>();
-            line.Enqueue(new Employee { Name  = "Alex" });
-            line.Enqueue(new Employee { Name  = "Paul" });
-            line.Enqueue(new Employee { Name  = "Chris" });
+            line.Enqueue(new Employee { Name = "Alex" });
+            line.Enqueue(new Employee { Name = "Paul" });
+            line.Enqueue(new Employee { Name = "Chris" });
 
-            while (line.Count > 0)
+            Console.WriteLine("--QUEUE<T>--");
+            var countQueue = line.Count;
+            for (int i = 0; i < countQueue; i++)
             {
                 var employee = line.Dequeue();
-                Console.WriteLine(employee.Name);
+                Console.WriteLine($"^ - {i} - {employee.Name}");
             }
-            
+
+
+
+            // Unit 2.4 - STACK
+
+            Stack<Employee> stack = new Stack<Employee>();
+            stack.Push(new Employee { Name = "Alex" });
+            stack.Push(new Employee { Name = "Paul" });
+            stack.Push(new Employee { Name = "Chris" });
+
+            Console.WriteLine("\n--STACK<T>--");
+            var countStack = stack.Count;
+            for (int i = 0; i < countStack; i++)
+            {
+                var employee = stack.Pop();
+                Console.WriteLine($"^ - {i} - {employee.Name}");
+            }
+
         }
     }
 }
