@@ -23,7 +23,7 @@ namespace CollectIt.Tests
             var list = new LinkedList<string>();
             list.AddFirst("Hello");
             list.AddLast("World");
-            list.RemoveLast();            
+            list.RemoveLast();
             
             Assert.AreEqual(list.First, list.Last);
         }

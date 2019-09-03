@@ -57,21 +57,42 @@ namespace CollectIt
             //    Console.WriteLine($"^ - {i} - {employee.Name}");
             //}
 
-            HashSet<Employee> set = new HashSet<Employee>();
-            set.Add(new Employee { Name = "Alex" }); // It is two different
-            set.Add(new Employee { Name = "Alex" }); // objects
-
-            var employee = new Employee { Name = "Paul" };
-            set.Add(employee);
-            set.Add(employee);
-            set.Add(new Employee { Name = "Chris" });
 
 
-            foreach (var item in set)
+            // Unit 2.5 - SET<T>
+
+            //HashSet<Employee> set = new HashSet<Employee>();
+            //set.Add(new Employee { Name = "Alex" }); // It is two different
+            //set.Add(new Employee { Name = "Alex" }); // objects
+
+            //var employee = new Employee { Name = "Paul" };
+            //set.Add(employee);
+            //set.Add(employee);
+            //set.Add(new Employee { Name = "Chris" });
+            
+            //foreach (var item in set)
+            //{
+            //    Console.WriteLine(item.Name);
+            //}
+
+
+
+            // Unit 2.6 - LINK<T>
+
+            LinkedList<int> list = new LinkedList<int>();
+            list.AddFirst(2);
+            list.AddFirst(3);
+
+            var first = list.First;
+            list.AddAfter(first, 5);
+            list.AddBefore(first, 10);
+
+            var node = list.First;
+            while (node != null)
             {
-                Console.WriteLine(item.Name);
+                Console.WriteLine(node.Value);
+                node = node.Next;
             }
-
         }
     }
 }
