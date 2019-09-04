@@ -69,7 +69,7 @@ namespace CollectIt
             //set.Add(employee);
             //set.Add(employee);
             //set.Add(new Employee { Name = "Chris" });
-            
+
             //foreach (var item in set)
             //{
             //    Console.WriteLine(item.Name);
@@ -97,30 +97,47 @@ namespace CollectIt
 
             // Unit 2.7 - DICTIONARY<T>
 
-            Dictionary<string, Employee> employeesByName = new Dictionary<string, Employee>();
+            //Dictionary<string, Employee> employeesByName = new Dictionary<string, Employee>();
 
-            employeesByName.Add( "Scott",  new Employee { Name = "Scott" });
-            employeesByName.Add( "Alex",  new Employee { Name = "Alex" });
-            employeesByName.Add( "Joy",  new Employee { Name = "Joy" });
+            //employeesByName.Add( "Scott",  new Employee { Name = "Scott" });
+            //employeesByName.Add( "Alex",  new Employee { Name = "Alex" });
+            //employeesByName.Add( "Joy",  new Employee { Name = "Joy" });
 
-            foreach (var item in employeesByName)
-            {
-                Console.WriteLine("{0}: {1}", item.Key, item.Value.Name);
-            }
+            //foreach (var item in employeesByName)
+            //{
+            //    Console.WriteLine("{0}: {1}", item.Key, item.Value.Name);
+            //}
 
-            Dictionary<string, List<Employee>> employeesList = new Dictionary<string, List<Employee>>();
+            //Dictionary<string, List<Employee>> employeesList = new Dictionary<string, List<Employee>>();
 
-            employeesList.Add("Software Department", new List<Employee> { new Employee { Name = "Scott"} });
+            //employeesList.Add("Software Department", new List<Employee> { new Employee { Name = "Scott"} });
 
-            employeesList["Software Department"].Add(new Employee { Name = "Tom"});
+            //employeesList["Software Department"].Add(new Employee { Name = "Tom"});
+
+            //foreach (var item in employeesList)
+            //{
+            //    foreach (var person in item.Value)
+            //    {
+            //        Console.WriteLine(person.Name);
+            //    }
+            //}
+
+
+
+            // Unit 2.8 - SORTEDDICTIONARY<T>
+
+            SortedDictionary<string, List<Employee>> employeesList = new SortedDictionary<string, List<Employee>>();
+
+            employeesList.Add("Sales", new List<Employee> { new Employee(), new Employee(), new Employee() });
+            employeesList.Add("Engineering", new List<Employee> { new Employee(), new Employee() });
+
 
             foreach (var item in employeesList)
             {
-                foreach (var person in item.Value)
-                {
-                    Console.WriteLine(person.Name);
-                }
+
+                Console.WriteLine("the count of employees for {0} is {1}", item.Key, item.Value.Count);
             }
+
         }
     }
 }
