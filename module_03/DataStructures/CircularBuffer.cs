@@ -1,14 +1,5 @@
-﻿using System.Collections;
-
-namespace DataStructures
+﻿namespace DataStructures
 {
-    public interface IBuffer<T>
-    {
-        bool IsEmpty { get; }
-        void Write(T value);
-        T Read();
-    }
-
     public class CircularBuffer<T> : IBuffer<T>
     {
         private T[] _buffer;

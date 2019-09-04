@@ -4,9 +4,9 @@ namespace DataStructures
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            var buffer = new CircularBuffer<double>();
+            var buffer = new Buffer<double>();
 
             ProcessInput(buffer);
             ProcessBuffer(buffer);
