@@ -79,19 +79,47 @@ namespace CollectIt
 
             // Unit 2.6 - LINK<T>
 
-            LinkedList<int> list = new LinkedList<int>();
-            list.AddFirst(2);
-            list.AddFirst(3);
+            //LinkedList<int> list = new LinkedList<int>();
+            //list.AddFirst(2);
+            //list.AddFirst(3);
 
-            var first = list.First;
-            list.AddAfter(first, 5);
-            list.AddBefore(first, 10);
+            //var first = list.First;
+            //list.AddAfter(first, 5);
+            //list.AddBefore(first, 10);
 
-            var node = list.First;
-            while (node != null)
+            //var node = list.First;
+            //while (node != null)
+            //{
+            //    Console.WriteLine(node.Value);
+            //    node = node.Next;
+            //}
+
+
+            // Unit 2.7 - DICTIONARY<T>
+
+            Dictionary<string, Employee> employeesByName = new Dictionary<string, Employee>();
+
+            employeesByName.Add( "Scott",  new Employee { Name = "Scott" });
+            employeesByName.Add( "Alex",  new Employee { Name = "Alex" });
+            employeesByName.Add( "Joy",  new Employee { Name = "Joy" });
+
+            foreach (var item in employeesByName)
             {
-                Console.WriteLine(node.Value);
-                node = node.Next;
+                Console.WriteLine("{0}: {1}", item.Key, item.Value.Name);
+            }
+
+            Dictionary<string, List<Employee>> employeesList = new Dictionary<string, List<Employee>>();
+
+            employeesList.Add("Software Department", new List<Employee> { new Employee { Name = "Scott"} });
+
+            employeesList["Software Department"].Add(new Employee { Name = "Tom"});
+
+            foreach (var item in employeesList)
+            {
+                foreach (var person in item.Value)
+                {
+                    Console.WriteLine(person.Name);
+                }
             }
         }
     }
