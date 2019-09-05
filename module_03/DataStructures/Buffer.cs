@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 
 namespace DataStructures
 {
@@ -16,6 +17,19 @@ namespace DataStructures
         public virtual T Read()
         {
             return _queue.Dequeue();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            foreach (var item in _queue)
+            {
+                yield return item;
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return this.GetEnumerator();
         }
     }
 }
