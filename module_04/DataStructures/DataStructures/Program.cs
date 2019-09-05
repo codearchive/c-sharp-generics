@@ -4,20 +4,22 @@ namespace DataStructures
 {
     class Program
     {
+        static void ConsoleWrite(double data)
+        {
+            Console.WriteLine(data);
+        }
+
         static void Main()
         {
             var buffer = new CircularBuffer<double>(3);
 
             ProcessInput(buffer);
 
-            buffer.Dump();
-            
-            var asInts = buffer.AsEnumerableOf<double, int>();
-
-            foreach (var item in asInts)
-            {
-                Console.WriteLine(item);
-            }
+            //Printer<double> consoleOut = new Printer<double>(ConsoleWrite);
+            // 
+            // We can use ConsoleWrite function directly.
+            // Behind the scene compiler will instantiate delegate.
+            buffer.Dump(ConsoleWrite);
 
             ProcessBuffer(buffer);
         }
