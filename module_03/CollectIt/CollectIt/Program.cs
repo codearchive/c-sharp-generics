@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace CollectIt
 {
@@ -7,17 +6,15 @@ namespace CollectIt
     {
         static void Main(string[] args)
         {
-            SortedDictionary<string, SortedSet<Employee>> departments = new SortedDictionary<string, SortedSet<Employee>>();
+            DepartmentCollection departments = new DepartmentCollection();
 
-            departments.Add("Sales", new SortedSet<Employee>(new EmployeeComparer()));
-            departments["Sales"].Add(new Employee { Name = "Joy" });
-            departments["Sales"].Add(new Employee { Name = "Alex" });
-            departments["Sales"].Add(new Employee { Name = "Alex" });
-
-            departments.Add("Engineering", new SortedSet<Employee>(new EmployeeComparer()));
-            departments["Engineering"].Add(new Employee { Name = "Scoot" });
-            departments["Engineering"].Add(new Employee { Name = "Alex" });
-            departments["Engineering"].Add(new Employee { Name = "Dani" });
+            departments.Add("Sales", new Employee { Name = "Joy" })
+                       .Add("Sales", new Employee { Name = "Alex" })
+                       .Add("Sales", new Employee { Name = "Alex" });
+            
+            departments.Add("Engineering", new Employee { Name = "Scoot" })
+                       .Add("Engineering", new Employee { Name = "Alex" })
+                       .Add("Engineering", new Employee { Name = "Dani" });
 
             foreach (var department in departments)
             {
