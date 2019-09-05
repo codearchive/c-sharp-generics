@@ -10,7 +10,9 @@ namespace DataStructures
 
             ProcessInput(buffer);
 
-            var asInts = buffer.AsEnumerableOf<int>();
+            buffer.Dump();
+            
+            var asInts = buffer.AsEnumerableOf<double, int>();
 
             foreach (var item in asInts)
             {
