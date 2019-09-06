@@ -4,13 +4,24 @@ namespace DataStructures
 {
     class Program
     {
-        static void ConsoleWrite(double data)
-        {
-            Console.WriteLine(data);
-        }
+        //static void ConsoleWrite(double data)
+        //{
+        //    Console.WriteLine(data);
+        //}
 
         static void Main()
         {
+            //Action<double> print = ConsoleWrite;
+
+            // Using anonymous method instead
+            //Action<double> print = delegate(double data)
+            //{
+            //    Console.WriteLine(data);
+            //};
+
+            // Using lambda expression
+            //Action<double> print = d => Console.WriteLine(d);
+
             var buffer = new CircularBuffer<double>(3);
 
             ProcessInput(buffer);
@@ -19,7 +30,9 @@ namespace DataStructures
             // 
             // We can use ConsoleWrite function directly.
             // Behind the scene compiler will instantiate delegate.
-            buffer.Dump(ConsoleWrite);
+             
+            //Inline lambda expression
+            buffer.Dump(d => Console.WriteLine(d));
 
             ProcessBuffer(buffer);
         }
