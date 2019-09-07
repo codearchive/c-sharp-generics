@@ -20,11 +20,25 @@ namespace DataStructures
             //};
 
             // Using lambda expression
-            //Action<double> print = d => Console.WriteLine(d);
+            //Action<bool> print = d => Console.WriteLine(d);
+            //Func<double, double> square = d => d * d;
+            //Func<double, double, double> add = (x, y) => x + y;
+            //Predicate<double> isLessThanTen = d => d < 10;
 
+            //print(isLessThanTen(square(add(3, 5))));
+
+           
             var buffer = new CircularBuffer<double>(3);
 
             ProcessInput(buffer);
+
+            Converter<double, DateTime> converter = d => new DateTime(2010, 1, 1).AddDays(d);
+
+            var asDates = buffer.Map(converter);
+            foreach (var date in asDates)
+            {
+                Console.WriteLine(date);
+            }
 
             //Printer<double> consoleOut = new Printer<double>(ConsoleWrite);
             // 
