@@ -11,44 +11,20 @@ namespace DataStructures
 
         static void Main()
         {
-            //Action<double> print = ConsoleWrite;
-
-            // Using anonymous method instead
-            //Action<double> print = delegate(double data)
-            //{
-            //    Console.WriteLine(data);
-            //};
-
-            // Using lambda expression
-            //Action<bool> print = d => Console.WriteLine(d);
-            //Func<double, double> square = d => d * d;
-            //Func<double, double, double> add = (x, y) => x + y;
-            //Predicate<double> isLessThanTen = d => d < 10;
-
-            //print(isLessThanTen(square(add(3, 5))));
-
-           
             var buffer = new CircularBuffer<double>(3);
+
+            buffer.ItemDiscarded += ItemDiscarded;
 
             ProcessInput(buffer);
 
-            Converter<double, DateTime> converter = d => new DateTime(2010, 1, 1).AddDays(d);
-
-            var asDates = buffer.Map(converter);
-            foreach (var date in asDates)
-            {
-                Console.WriteLine(date);
-            }
-
-            //Printer<double> consoleOut = new Printer<double>(ConsoleWrite);
-            // 
-            // We can use ConsoleWrite function directly.
-            // Behind the scene compiler will instantiate delegate.
-             
-            //Inline lambda expression
             buffer.Dump(d => Console.WriteLine(d));
 
             ProcessBuffer(buffer);
+        }
+
+        private static void ItemDiscarded(object sender, ItemDiscardedEventArgs<double> e)
+        {
+            Console.WriteLine("Buffer is full. Discarding {0} New item is {1}", e.ItemDiscarded, e.NewItem);
         }
 
         private static void ProcessBuffer(IBuffer<double> buffer)
