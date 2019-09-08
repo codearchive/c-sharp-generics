@@ -16,6 +16,12 @@ namespace module_06
             }
 
             Console.WriteLine();
+
+            var employee = new Employee();
+            var employeeType = typeof(Employee);
+            var methodInfo = employeeType.GetMethod("Speak");
+            methodInfo = methodInfo.MakeGenericMethod(typeof(DateTime));
+            methodInfo.Invoke(employee, null);
         }
 
         private static object CreateCollection(Type collectionType, Type itemType)
