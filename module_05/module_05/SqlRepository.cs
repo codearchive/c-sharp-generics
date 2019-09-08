@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace module_05
 {
-    public class Sqlrepository<T> : IRepository<T> where T : class
+    public class Sqlrepository<T> : IRepository<T> where T : class, IEntity
     {
         private DbContext _ctx;
         private DbSet<T> _set;
@@ -17,7 +17,10 @@ namespace module_05
 
         public void Add(T newEntity)
         {
-            _set.Add(newEntity);
+            if (newEntity.IsValid())
+            {
+                _set.Add(newEntity);
+            }
         }
 
         public void Delete(T newEntity)
