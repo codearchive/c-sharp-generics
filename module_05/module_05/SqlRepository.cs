@@ -23,14 +23,14 @@ namespace module_05
             }
         }
 
-        public void Delete(T newEntity)
+        public void Delete(T entity)
         {
-            throw new NotImplementedException();
+            _set.Remove(entity);
         }
 
         public T FindById(int id)
         {
-            throw new NotImplementedException();
+            return _set.Find(id);
         }
 
         public IQueryable<T> FindAll()

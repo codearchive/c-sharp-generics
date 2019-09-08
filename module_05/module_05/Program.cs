@@ -14,7 +14,14 @@ namespace module_05
             {
                 AddEmployee(employeeRepository);
                 CountEmployee(employeeRepository);
+                QueryEmployees(employeeRepository);
             }
+        }
+
+        private static void QueryEmployees(IRepository<Employee> employeeRepository)
+        {
+            var emloyee = employeeRepository.FindById(1);
+            Console.WriteLine(emloyee.Name);
         }
 
         private static void CountEmployee(IRepository<Employee> employeeRepository)
