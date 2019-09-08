@@ -32,7 +32,7 @@ namespace module_05
 
         public IQueryable<T> FindAll()
         {
-            throw new NotImplementedException();
+            return _set;
         }
 
         public int Commit()
