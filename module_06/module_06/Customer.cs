@@ -1,6 +1,6 @@
 ﻿namespace module_06
 {
-    public interface IRepository<T>
+    public class Customer
     {
     }
 }
