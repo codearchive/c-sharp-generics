@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections.Generic;
 
 namespace module_07
 {
@@ -10,22 +10,23 @@ namespace module_07
             //var value = input.ParseEnum<Steps>();
             //Console.WriteLine(value.GetType().Name);
 
-            var numbers = new double[] {1, 2, 3, 4, 5, 6};
-            var result = SampledAverage(numbers);
-            Console.WriteLine(result);
-        }
+            //var numbers = new double[] { 1, 2, 3, 4, 5, 6 };
+            //var result = SampledAverage(numbers);
+            //Console.WriteLine(result);
 
-        private static double SampledAverage(double[] numbers)
-        {
-            var count = 0;
-            var sum = 0.0;
-            for (int i = 0; i < numbers.Length; i++)
-            {
-                sum += numbers[i];
-                count += 1;
-            }
+            var list = new List<Item>();
 
-            return sum / count;
+            list.Add(new Item<int>());
         }
+    }
+
+    public class Item<T> : Item
+    {
+
+    }
+
+    public class Item
+    {
+
     }
 }
